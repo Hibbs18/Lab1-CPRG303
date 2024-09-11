@@ -26,6 +26,14 @@ export default function Main() {
                     <SimpleCard />
                     <SimpleCard />
                     <SimpleCard />
+                    <SimpleCard />
+                    <SimpleCard />
+                    <SimpleCard />
+                    <SimpleCard />
+                    <SimpleCard />
+                    <SimpleCard />
+                    <SimpleCard />
+                    <SimpleCard />
                 </View>
             </ScrollView>
         </SafeAreaView>
