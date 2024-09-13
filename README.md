@@ -1,79 +1,71 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+This README.md file contains the documentation for how I installed React Native on my MacOS system for Android development.  
 
-# Getting Started
+**System requirements:**
+   The system requirements being used to run react native require at least (at the bare minimum) 4GB of RAM, 10GB of storage space for secure operation, CPU requirements will want you to have a minimum of 6 cores. As for OS: any windows 11 system, MAC OS, or most windows 10. Operating systems such as Ubuntu 16 or Linux will also work.
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+**Installing React Native:**
+      First, you may run React Native without a framework, but it is highly reccomended to use one if you are building a new application. 
+      
+Step 1: Install Dependancies
+   For this you will need:
+      Node
+      Watchman
+      React Native command line interface
+      a JDK
+      Android studio
 
-## Step 1: Start the Metro Server
+Step 2: Node and Watchman
+   Open the terminal and run the following commands after installing Homebrew:
+      brew install node
+      brew install watchman
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+Step 3: Java development kit
+   Run the following commands:
+      brew install --cask zulu@17
+      brew info --cask zulu@17 to determine the path where cask was installed
+   After this JDK Installation, use the following command:
+      export JAVA_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Step 4: Install android studio
+   Download and install android studio and during the wizard installation ensure these are checked:
+      - Android SDK
+      - Android SDK platform
+      - Android Virtual device
 
-```bash
-# using npm
-npm start
+Step 5: expand android 14 (UpsideDownCake)
+   ensure the following items are checked:
+      - Android SDK platform 34
+      - Intel x86 Atom_64 System Image or Google APIs Intel x86 Atom System Image or (for Apple M1             Silicon) Google APIs ARM 64 v8a System Image.
 
-# OR using Yarn
-yarn start
-```
+Step 6: Configure Android Home
+   Add the following to your ~/.zprofile or ~/.zshrc:
+      export ANDROID_HOME=$HOME/Library/Android/sdk
+      export PATH=$PATH:$ANDROID_HOME/emulator
+      export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-## Step 2: Start your Application
+**Project Creation:**
+   Now that your necessary tools and dependancies are installed, these steps will outline how create
+   a new project using the framework we have just created.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+   Step 1: open your terminal
+      run the following command:
+         npx create-expo-app@latest
 
-### For Android
+      This will create a new project for you to get started off with.
 
-```bash
-# using npm
-npm run android
+   Step 2: run your android virtual device
+      in the CLI (Command Line Interface) type the following:
+         npm run android (for android) OR
+         npm run IOS (for apple)
 
-# OR using Yarn
-yarn android
-```
 
-### For iOS
+**Troubleshooting:**
+   I ran into zero error messages during my installation and as a result, have no info to provide on the reolution of said error messages. 
+   However, this is subject to change and this document will be updated and configured properly for whenever errors messages appear, and are resolved. 
 
-```bash
-# using npm
-npm run ios
 
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+**Resources for external help outside of this document:**
+   For environment setup: https://reactnative.dev/docs/set-up-your-environment
+   For spinning up a new project: https://reactnative.dev/docs/environment-setup
+   For setting up dev environment: https://reactnative.dev/docs/0.71/environment-setup?         guide=quickstart&package-manager=npm
+      
